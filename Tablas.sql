@@ -17,16 +17,17 @@ create table clientes (
     direccion varchar(30),
     correo_electronico varchar(20),
     telefono varchar(9)
+    disenador varchar(20)
 );
-insert into trajes values('111','Algodon','L','Azul','Pablo','49526312','1');
-insert into trajes values('222','Poliester','XL','Rojo','Daniel','77874757','2');
-insert into trajes values('333','Lino','S','Negro','Hugo','49302040','3');
-insert into trajes values('444','Lana','M','Marrón','Mario','49522145','4');
-insert into trajes values('555','Algodon','L','Blanco','Jairo','49133231','5');
-insert into trajes values('666','Seda','M','Azul','Andres','49604022','6');
-insert into trajes values('777','Seda','XL','Verde','Alex','49501020','7');
-insert into trajes values('888','Algodon','S','Marrón','Francisco','49001022','8');
-insert into trajes values('999','Lino','XS','Negro','Jose','49694223','9');
+insert into trajes values('111','Algodon','L','Azul','Pablo');
+insert into trajes values('222','Poliester','XL','Rojo','Daniel');
+insert into trajes values('333','Lino','S','Negro','Hugo');
+insert into trajes values('444','Lana','M','Marrón','Mario');
+insert into trajes values('555','Algodon','L','Blanco','Jairo');
+insert into trajes values('666','Seda','M','Azul','Andres');
+insert into trajes values('777','Seda','XL','Verde','Alex');
+insert into trajes values('888','Algodon','S','Marrón','Francisco');
+insert into trajes values('999','Lino','XS','Negro','Jose');
 
 create table clientes (
     codigo_cliente int(10) primary key,
