@@ -12,13 +12,12 @@ USE Trajes;
 --Luego podremos acceder a la base de datos desde el programa, con las credenciales del usuario que hemos definido.
 
 --Creación de tablas
-create table clientes (
-    codigo_cliente int(10) primary key,
-    direccion varchar(30),
-    correo_electronico varchar(20),
-    telefono varchar(9)
-    disenador varchar(20)
-);
+create table trajes (
+    codigo_trajes int(10) primary key,
+    material varchar(30),
+    talla varchar(10),
+    color varchar(15),
+    disenador varchar(20),
 insert into trajes values('111','Algodon','L','Azul','Pablo');
 insert into trajes values('222','Poliester','XL','Rojo','Daniel');
 insert into trajes values('333','Lino','S','Negro','Hugo');
