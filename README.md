@@ -11,4 +11,4 @@ Crea un enunciado, donde indiques las operaciones a realizar. Tienes que incluir
 
 5. Borrar información: Elimina todos los clientes que han comprado en la fecha 2022-01-01 y muestra el número de filas afectadas.
 
-6. Actualizar información: Actualiza la dirección, correo electrónico y número de teléfono del cliente con código 888 en la tabla clientes. Muestra el número de filas afectadas y luego muestra una tabla actualizada con todos los clientes.
+6. Actualizar información: Actualize la informacion de un cliente de la tabla clientes solicitando al usuario el codigo del cliente y el campo que desea actualizar.
