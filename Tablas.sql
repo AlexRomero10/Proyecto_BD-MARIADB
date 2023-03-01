@@ -17,7 +17,8 @@ create table trajes (
     material varchar(30),
     talla varchar(10),
     color varchar(15),
-    disenador varchar(20),
+    disenador varchar(20)
+);
 insert into trajes values('111','Algodon','L','Azul','Pablo');
 insert into trajes values('222','Poliester','XL','Rojo','Daniel');
 insert into trajes values('333','Lino','S','Negro','Hugo');
