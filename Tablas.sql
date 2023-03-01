@@ -32,7 +32,7 @@ insert into trajes values('999','Lino','XS','Negro','Jose');
 create table clientes (
     codigo_cliente int(10) primary key,
     direccion varchar(30),
-    correo_electronico varchar(15),
+    correo_electronico varchar(30),
     telefono varchar(9)
 );
 insert into clientes values('111','Calle Peru','juan13@gmail.com','955862023');
