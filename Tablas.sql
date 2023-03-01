@@ -42,7 +42,7 @@ insert into clientes values('444','Calle Jaen','manu30@gmail.com','955865026');
 insert into clientes values('555','Calle Luna','hugo70@gmail.com','955866027');
 insert into clientes values('666','Calle Peru','leo13@gmail.com', '955861078');
 insert into clientes values('777','Calle Luna','perez4@gmail.com','955123456');
-insert into clientes values('888','Calle Sol','maria0@gmail.com',' 955789012');
+insert into clientes values('888', 'Calle Sol', 'maria0@gmail.com', '955789012');
 insert into clientes values('999','Calle Cadiz','luis9@gmail.com','955654321');
 
 
