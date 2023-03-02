@@ -31,20 +31,20 @@ insert into trajes values('999','Lino','XS','Negro','Jose');
 
 create table clientes (
     codigo_cliente int(10) primary key,
+    nombre varchar(30)
     direccion varchar(30),
-    correo_electronico varchar(30),
+    correo_electronico varchar(15),
     telefono varchar(9)
 );
-insert into clientes values('111','Calle Peru','juan13@gmail.com','955862023');
-insert into clientes values('222','Calle Tona','alex18@gmail.com','955863024');
-insert into clientes values('333','Calle Goya','dani20@gmail.com','955864025');
-insert into clientes values('444','Calle Jaen','manu30@gmail.com','955865026');
-insert into clientes values('555','Calle Luna','hugo70@gmail.com','955866027');
-insert into clientes values('666','Calle Peru','leo13@gmail.com', '955861078');
-insert into clientes values('777','Calle Luna','perez4@gmail.com','955123456');
-insert into clientes values('888', 'Calle Sol', 'maria0@gmail.com', '955789012');
-insert into clientes values('999','Calle Cadiz','luis9@gmail.com','955654321');
-
+insert into clientes values('111','Antonio','Calle Peru','juan13@gmail.com','955862023');
+insert into clientes values('222','German','Calle Tona','alex18@gmail.com','955863024');
+insert into clientes values('333','Julián','Calle Goya','dani20@gmail.com','955864025');
+insert into clientes values('444','Paula','Calle Jaen','manu30@gmail.com','955865026');
+insert into clientes values('555','Marta','Calle Luna','hugo70@gmail.com','955866027');
+insert into clientes values('666','Ana','Calle Peru','leo13@gmail.com', '955861078');
+insert into clientes values('777','Carlos','Calle Luna','perez4@gmail.com','955123456');
+insert into clientes values('888','Julia','Calle Sol','maria0@gmail.com',' 955789012');
+insert into clientes values('999','Rocio','Calle Cadiz','luis9@gmail.com','955654321');
 
 create table personal_de_atencion (
     DNI_Personal_de_Atencion varchar(9) primary key,
