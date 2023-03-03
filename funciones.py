@@ -1,5 +1,5 @@
 import mysql.connector
-import sys
+
 def Conectar_BD(host, usuario, password, database):
     try:
         db = mysql.connector.connect(
