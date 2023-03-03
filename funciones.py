@@ -1,5 +1,5 @@
 import mysql.connector
-
+import sys
 def Conectar_BD(host, usuario, password, database):
     try:
         db = mysql.connector.connect(
@@ -25,30 +25,39 @@ def MostrarMenu():
     4- Pide por teclado los datos de un nuevo traje y su respectivo diseñador. Luego, inserta los datos en la tabla trajes y muestra una tabla actualizada con todos los trajes.
     5- Elimina todos los clientes que han comprado en la fecha 2022-01-01 y muestra el número de filas afectadas.
     6- Actualiza la información de un cliente de la tabla clientes solicitando al usuario el código del cliente y el campo que desea actualizar.
+    7- Salir
     '''
     print(menu)
     while True:
         try:
             opcion=int(input("Selecciona una opción: "))
-            while opcion<1 or opcion>6:
-                print("Error, el número de la opción debe estar comprendido entre el 1 y el 6")
+            while opcion<1 or opcion>7:
+                print("Error, el número de la opción debe estar comprendido entre el 1 y el 7")
                 opcion=int(input("\nSelecciona una opción: "))
             return opcion
         except:
             print("Error, la opción debe de ser un número.\n")
 
 
+
 #Ejercicio1
 def mostrar_tabla(db):
+    cursor = db.cursor()
     try:
         sql = "SELECT t.material, t.talla, t.color, t.disenador, COUNT(c.codigo_cliente) as total_clientes FROM trajes t INNER JOIN clientes c  ON t.codigo_trajes = c.codigo_cliente GROUP BY t.material, t.talla, t.color, t.disenador"
-        cursor = db.cursor()
         cursor.execute(sql)
         registros = cursor.fetchall()
-        for result in registros:
-            print(result)
+        for registro in registros:
+            print(registro)
     except:
-        print("Se ha producido un error en la consulta.")
+        print("Se ha producido un error al ejecutar la consulta.")
+    finally:
+        cursor.close()
+
+
+
+
+
 
 #Ejercicio2
 def mostrar_tabla_sueldo(db):
@@ -63,29 +72,36 @@ def mostrar_tabla_sueldo(db):
         print("Se ha producido un error en la consulta.")
 
 #Ejercicio3
-def mostrar_trajes_cliente(db, correo_electronico):
+def mostrar_trajes_cliente(db, nombre_cliente):
     try:
-        sql = """SELECT trajes.material, trajes.talla, trajes.color, trajes.disenador, personal_de_atencion.Nombre FROM trajes INNER JOIN personal_de_atencion ON trajes.codigo_trajes = personal_de_atencion.DNI_Personal_de_Atencion INNER JOIN clientes ON clientes.codigo_cliente = trajes.codigo_trajes WHERE clientes.correo_electronico = %s"""
-        cursor = db.cursor(dictionary=True)
-        cursor.execute(sql, (correo_electronico,))
-        registros = cursor.fetchall()
-        for result in registros:
-            print(f"Material: {result['material']}\nTalla: {result['talla']}\nColor: {result['color']}\nDiseñador: {result['disenador']}\nPersonal de atención: {result['Nombre']}\n")
-    except:
-        print("Se ha producido un error en la consulta.")
+        cursor = db.cursor()
+        sql = """SELECT trajes.codigo_trajes, trajes.material, trajes.talla, trajes.color, trajes.disenador, trajes.fecha_compra, personal_de_atencion.Nombre AS nombre_personal
+                 FROM trajes
+                 INNER JOIN clientes ON trajes.codigo_trajes = clientes.codigo_cliente
+                 INNER JOIN personal_de_atencion ON trajes.DNI_Personal_de_Atencion = personal_de_atencion.DNI_Personal_de_Atencion
+                 WHERE clientes.nombre = %s"""
+        cursor.execute(sql, (nombre_cliente,))
+        resultado = cursor.fetchall()
+        if len(resultado) > 0:
+            print(f"Trajes comprados por {nombre_cliente}:")
+            for traje in resultado:
+                    print(f"Material: {traje[0]}\nTalla: {traje[1]}\nColor: {traje[2]}\nDiseñador: {traje[3]}\nAtendido por: {traje[4]}\n")
+        else:
+            print(f"No se encontraron trajes comprados por {nombre_cliente}")
+    except Exception as e:
+        print(f"Ocurrió un error: {e}")
+
+
 
 
 #Ejercicio4
-def agregar_traje(db,material,talla,color,disenador):
+def agregar_traje(db, codigo_trajes, material, talla, color, disenador,fecha_compra):
     cursor = db.cursor()
-    sql = f"INSERT INTO trajes (material, talla, color, disenador) VALUES ('{material}', '{talla}', '{color}', '{disenador}');"
-    try:
-        cursor.execute(sql)
-        db.commit()
-        print("El traje se ha añadido correctamente a la tabla.")
-    except:
-        db.rollback()
-        print("No se ha podido insertar el traje en la tabla.")
+    sql = "INSERT INTO trajes (codigo_trajes, material, talla, color, disenador,fecha_compra) VALUES (%s, %s, %s, %s, %s,%s)"
+    val = (codigo_trajes, material, talla, color, disenador,fecha_compra)
+    cursor.execute(sql, val)
+    db.commit()
+    print(cursor.rowcount, "traje insertado.")
 
 def actualizar_tabla_trajes(db):
     cursor = db.cursor()
@@ -125,3 +141,7 @@ def actualizar_cliente(db, codigo_cliente, campo, nuevo_valor):
         db.rollback()
         print("No se ha podido actualizar el cliente.")
 
+
+def salir():
+    print("FIN DEL PROGRAMA")
+    sys.exit()

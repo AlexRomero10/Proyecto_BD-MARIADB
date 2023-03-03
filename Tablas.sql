@@ -12,38 +12,43 @@ USE Trajes;
 --Luego podremos acceder a la base de datos desde el programa, con las credenciales del usuario que hemos definido.
 
 --Creación de tablas
-create table clientes (
-    codigo_cliente int(10) primary key,
-    direccion varchar(30),
-    correo_electronico varchar(20),
-    telefono varchar(9)
-    disenador varchar(20)
+CREATE TABLE trajes (
+    codigo_trajes INT(10) PRIMARY KEY,
+    material VARCHAR(30),
+    talla VARCHAR(10),
+    color VARCHAR(15),
+    disenador VARCHAR(20),
+    fecha_compra DATE,
+    DNI_Personal_de_Atencion VARCHAR(9),
+    FOREIGN KEY (DNI_Personal_de_Atencion) REFERENCES personal_de_atencion(DNI_Personal_de_Atencion)
 );
-insert into trajes values('111','Algodon','L','Azul','Pablo');
-insert into trajes values('222','Poliester','XL','Rojo','Daniel');
-insert into trajes values('333','Lino','S','Negro','Hugo');
-insert into trajes values('444','Lana','M','Marrón','Mario');
-insert into trajes values('555','Algodon','L','Blanco','Jairo');
-insert into trajes values('666','Seda','M','Azul','Andres');
-insert into trajes values('777','Seda','XL','Verde','Alex');
-insert into trajes values('888','Algodon','S','Marrón','Francisco');
-insert into trajes values('999','Lino','XS','Negro','Jose');
+
+insert into trajes values('111','Algodon','L','Azul','Pablo','2022-01-01','49167338P');
+insert into trajes values('222','Poliester','XL','Rojo','Daniel','2023-01-01','75894125F');
+insert into trajes values('333','Lino','S','Negro','Hugo','2022-01-01','75804020A');
+insert into trajes values('444','Lana','M','Marrón','Mario','2022-01-01','49657812G');
+insert into trajes values('555','Algodon','L','Blanco','Jairo','2024-01-01','49367412T');
+insert into trajes values('666','Seda','M','Azul','Andres','2025-01-01','49357311Z');
+insert into trajes values('777','Seda','XL','Verde','Alex','2020-01-01','49347210W');
+insert into trajes values('888','Algodon','S','Marrón','Francisco','2019-01-01','49337119C');
+insert into trajes values('999','Lino','XS','Negro','Jose','2018-01-01','49327018M');
 
 create table clientes (
     codigo_cliente int(10) primary key,
+    nombre varchar(30),
     direccion varchar(30),
-    correo_electronico varchar(15),
-    telefono varchar(9)
+    correo_electronico varchar(25),
+    telefono varchar(10)
 );
-insert into clientes values('111','Calle Peru','juan13@gmail.com','955862023');
-insert into clientes values('222','Calle Tona','alex18@gmail.com','955863024');
-insert into clientes values('333','Calle Goya','dani20@gmail.com','955864025');
-insert into clientes values('444','Calle Jaen','manu30@gmail.com','955865026');
-insert into clientes values('555','Calle Luna','hugo70@gmail.com','955866027');
-insert into clientes values('666','Calle Peru','leo13@gmail.com', '955861078');
-insert into clientes values('777','Calle Luna','perez4@gmail.com','955123456');
-insert into clientes values('888','Calle Sol','maria0@gmail.com',' 955789012');
-insert into clientes values('999','Calle Cadiz','luis9@gmail.com','955654321');
+insert into clientes values('111','Antonio','Calle Peru','juan13@gmail.com','955862023');
+insert into clientes values('222','German','Calle Tona','alex18@gmail.com','955863024');
+insert into clientes values('333','Julián','Calle Goya','dani20@gmail.com','955864025');
+insert into clientes values('444','Paula','Calle Jaen','manu30@gmail.com','955865026');
+insert into clientes values('555','Marta','Calle Luna','hugo70@gmail.com','955866027');
+insert into clientes values('666','Ana','Calle Peru','leo13@gmail.com', '955861078');
+insert into clientes values('777','Carlos','Calle Luna','perez4@gmail.com','955123456');
+insert into clientes values('888','Julia','Calle Sol','maria0@gmail.com',' 955789012');
+insert into clientes values('999','Rocio','Calle Cadiz','luis9@gmail.com','955654321');
 
 
 create table personal_de_atencion (
