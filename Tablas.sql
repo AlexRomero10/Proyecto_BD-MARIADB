@@ -12,6 +12,7 @@ USE Trajes;
 --Luego podremos acceder a la base de datos desde el programa, con las credenciales del usuario que hemos definido.
 
 --Creación de tablas
+<<<<<<< HEAD
 CREATE TABLE trajes (
     codigo_trajes INT(10) PRIMARY KEY,
     material VARCHAR(30),
@@ -21,6 +22,14 @@ CREATE TABLE trajes (
     fecha_compra DATE,
     DNI_Personal_de_Atencion VARCHAR(9),
     FOREIGN KEY (DNI_Personal_de_Atencion) REFERENCES personal_de_atencion(DNI_Personal_de_Atencion)
+=======
+create table trajes (
+    codigo_trajes int(10) primary key,
+    material varchar(30),
+    talla varchar(10),
+    color varchar(15),
+    disenador varchar(20)
+>>>>>>> ae660c9d53f7fb2305b4c0858f6aa059742b6a65
 );
 
 insert into trajes values('111','Algodon','L','Azul','Pablo','2022-01-01','49167338P');
@@ -35,7 +44,11 @@ insert into trajes values('999','Lino','XS','Negro','Jose','2018-01-01','4932701
 
 create table clientes (
     codigo_cliente int(10) primary key,
+<<<<<<< HEAD
     nombre varchar(30),
+=======
+    nombre varchar(30)
+>>>>>>> ae660c9d53f7fb2305b4c0858f6aa059742b6a65
     direccion varchar(30),
     correo_electronico varchar(25),
     telefono varchar(10)
@@ -49,7 +62,10 @@ insert into clientes values('666','Ana','Calle Peru','leo13@gmail.com', '9558610
 insert into clientes values('777','Carlos','Calle Luna','perez4@gmail.com','955123456');
 insert into clientes values('888','Julia','Calle Sol','maria0@gmail.com',' 955789012');
 insert into clientes values('999','Rocio','Calle Cadiz','luis9@gmail.com','955654321');
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae660c9d53f7fb2305b4c0858f6aa059742b6a65
 
 create table personal_de_atencion (
     DNI_Personal_de_Atencion varchar(9) primary key,
