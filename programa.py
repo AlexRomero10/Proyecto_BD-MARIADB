@@ -28,9 +28,9 @@ while True:
         print("")
         eliminar_clientes(db)
     elif opcion == 6:
-        codigo_cliente = input("Ingrese el codigo del cliente que desea actualizar: ")
-        campo = input("Ingrese el campo que desea actualizar (direccion, correo_electronico, telefono): ")
-        nuevo_valor = input("Ingrese el nuevo valor para el campo seleccionado: ")
+        codigo_cliente = input("Introduce el codigo del cliente que desea actualizar: ")
+        campo = input("Introduce el campo que desea actualizar (direccion, correo_electronico, telefono): ")
+        nuevo_valor = input("Introduce el nuevo valor para el campo seleccionado: ")
         actualizar_cliente(db, codigo_cliente, campo, nuevo_valor)
     elif opcion == 7:
         print("FIN DEL PROGRAMA")

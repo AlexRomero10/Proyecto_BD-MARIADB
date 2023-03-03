@@ -142,6 +142,3 @@ def actualizar_cliente(db, codigo_cliente, campo, nuevo_valor):
         print("No se ha podido actualizar el cliente.")
 
 
-def salir():
-    print("FIN DEL PROGRAMA")
-    sys.exit()
